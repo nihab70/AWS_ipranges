@@ -3,14 +3,14 @@
 ## build
 
 ```
-go build AWS_ips.go
+go build -v
 ```
 
 ## help
 
 Usage of ./AWS_ips:
 ```
-#> ./AWS_ips -h
+#> ./AWS_ipranges -h
   -region string
     	region code from AWS. Default = eu-central-1 (default "eu-central-1")
   -service string
