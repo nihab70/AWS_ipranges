@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/nihab70/AWS_ipranges/cloudkit/aws"
+	"github.com/nihab70/cloudorama/cloudkit/aws"
 )
 
 func main() {
