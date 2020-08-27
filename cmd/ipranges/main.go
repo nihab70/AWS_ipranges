@@ -3,6 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
+
+	aws "github.com/nihab70/AWS_ipranges/cloudkit"
 )
 
 func main() {
@@ -14,7 +16,7 @@ func main() {
 	// read the commanline args
 	flag.Parse()
 
-	res := GetAWSIPRange()
+	res := aws.GetAWSIPRange()
 
 	fmt.Printf("IP Range creation date: %v\n", res.CreateDate)
 	fmt.Printf("Range for %v, %v\n-----\n", *myRegionPtr, *myServicePtr)
