@@ -3,6 +3,8 @@ package aws
 import (
 	"encoding/json"
 	"net/http"
+
+	log "github.com/sirupsen/logrus"
 )
 
 // IPPrefix define ip_prefix struct in AWS
@@ -35,6 +37,7 @@ func GetAWSIPRange() IPRange {
 	// URL to retrieve AWS IPs world wide
 	url := "https://ip-ranges.amazonaws.com/ip-ranges.json"
 
+	log.Info("Read json file from AWS")
 	res, err := http.Get(url)
 	if err != nil {
 		panic(err.Error())
@@ -48,5 +51,7 @@ func GetAWSIPRange() IPRange {
 	if err != nil {
 		panic(err.Error())
 	}
+	log.Infof("Read timestamp for ipramges %v", rangeData.CreateDate)
+	log.Infof("Read %v entries for prefixes", len(rangeData.Prefixes))
 	return rangeData
 }
