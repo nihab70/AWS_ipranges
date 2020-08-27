@@ -15,3 +15,6 @@
 # vendor/
 .vscode
 go.sum
+ipranges*
+!cmd/**
+.DS_Store
