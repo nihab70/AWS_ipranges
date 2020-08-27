@@ -1,4 +1,4 @@
-package aws
+package cloudkit
 
 import (
 	"encoding/json"
