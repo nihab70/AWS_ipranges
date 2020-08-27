@@ -1,4 +1,4 @@
-package logger
+package envconfig
 
 import (
 	"os"
@@ -9,7 +9,7 @@ import (
 const envLogLevel = "LOG_LEVEL"
 const defaultLogLevel = log.InfoLevel
 
-func getLogLevel() log.Level {
+func GetLogLevel() log.Level {
 	levelString, exists := os.LookupEnv(envLogLevel)
 	if !exists {
 		return defaultLogLevel

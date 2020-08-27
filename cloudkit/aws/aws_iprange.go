@@ -40,7 +40,7 @@ func GetAWSIPRange() IPRange {
 	log.Info("Read json file from AWS")
 	res, err := http.Get(url)
 	if err != nil {
-		panic(err.Error())
+		log.Error(err.Error())
 	}
 
 	defer res.Body.Close()
@@ -49,8 +49,9 @@ func GetAWSIPRange() IPRange {
 
 	err = json.NewDecoder(res.Body).Decode(&rangeData)
 	if err != nil {
-		panic(err.Error())
+		log.Error(err.Error())
 	}
+
 	log.Infof("Read timestamp for ipramges %v", rangeData.CreateDate)
 	log.Infof("Read %v entries for prefixes", len(rangeData.Prefixes))
 	return rangeData

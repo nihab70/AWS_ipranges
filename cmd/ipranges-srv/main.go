@@ -5,15 +5,24 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/nihab70/cloudorama/aux/envconfig"
 	"github.com/nihab70/cloudorama/cloudkit/aws"
 	log "github.com/sirupsen/logrus"
 )
 
 func main() {
+
+	//set up logger ...
+	loglevel := envconfig.GetLogLevel()
+	log.SetFormatter(&log.TextFormatter{})
+	log.SetLevel(loglevel)
+
 	log.Info("http service stating...")
+
 	http.HandleFunc("/", returnIPRange)
 	http.HandleFunc("/status", returnStatus)
 	http.ListenAndServe(":8080", nil)
+
 	log.Info("http service shuting down...")
 }
 
@@ -23,7 +32,7 @@ func returnIPRange(w http.ResponseWriter, r *http.Request) {
 
 	e, err := json.Marshal(data)
 	if err != nil {
-		panic(err.Error())
+		log.Error(err.Error())
 	}
 
 	args := r.URL.Path[1:]
