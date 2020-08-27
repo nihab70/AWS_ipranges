@@ -2,13 +2,14 @@
 
 ## build
 ```
-go build -v
+go getgithub.com/nihab70/cloudorama/cmd/ipranges
 ```
+This installs ipranges directly to your /bin (or ~/go/bin) diretory
 
 ## help
-Usage of ./AWS_ipranges:
+Usage of ipranges:
 ```
-#> ./AWS_ipranges -h
+#> ipranges -h
   -region string
     	region code from AWS. Default = eu-central-1 (default "eu-central-1")
   -service string
@@ -17,7 +18,7 @@ Usage of ./AWS_ipranges:
 
 ## run
 ```
-#> ./AWS_ipranges
+#> ipranges
 IP Range creation date: 2020-08-25-14-11-15
 Range for eu-central-1, EC2
 -----
@@ -29,7 +30,7 @@ Range for eu-central-1, EC2
 
 ## run with parameter
 ```
-./AWS_ipranges -region eu-west-1
+#> ipranges -region eu-west-1
 IP Range creation date: 2020-08-25-14-11-15
 Range for eu-west-1, EC2
 -----
