@@ -13,9 +13,7 @@ import (
 func main() {
 
 	//set up logger ...
-	loglevel := envconfig.GetLogLevel()
-	log.SetFormatter(&log.TextFormatter{})
-	log.SetLevel(loglevel)
+	envconfig.InitLogging()
 
 	log.Info("http service stating...")
 

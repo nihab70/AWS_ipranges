@@ -4,10 +4,14 @@ import (
 	"flag"
 	"fmt"
 
+	"github.com/nihab70/cloudorama/aux/envconfig"
 	"github.com/nihab70/cloudorama/cloudkit/aws"
 )
 
 func main() {
+
+	//set up logger ...
+	envconfig.InitLogging()
 
 	// region and service, which are interesting
 	myRegionPtr := flag.String("region", "eu-central-1", "region code from AWS. Default = eu-central-1")
