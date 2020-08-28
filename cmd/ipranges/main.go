@@ -13,6 +13,9 @@ func main() {
 	//set up logger ...
 	envconfig.InitLogging()
 
+	//init DB
+	initDB()
+
 	// region and service, which are interesting
 	myRegionPtr := flag.String("region", "eu-central-1", "region code from AWS. Default = eu-central-1")
 	myServicePtr := flag.String("service", "EC2", "service code from AWS. Default = ECS")
@@ -25,8 +28,7 @@ func main() {
 	fmt.Printf("IP Range creation date: %v\n", res.CreateDate)
 	fmt.Printf("Range for %v, %v\n-----\n", *myRegionPtr, *myServicePtr)
 
-	for i := range res.Prefixes {
-		prefix := res.Prefixes[i]
+	for i, prefix := range res.Prefixes {
 		if prefix.Region == *myRegionPtr && prefix.Service == *myServicePtr {
 			fmt.Printf("%v: %v \n", i, prefix.IPPrefix)
 		}
