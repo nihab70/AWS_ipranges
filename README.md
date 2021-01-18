@@ -2,7 +2,7 @@
 
 ## build
 ```
-go getgithub.com/nihab70/cloudorama/cmd/ipranges
+go get github.com/nihab70/cloudorama/cmd/ipranges
 ```
 This installs ipranges directly to your /bin (or ~/go/bin) diretory
 
